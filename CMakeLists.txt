@@ -21,6 +21,6 @@ endif()
 
 # ---- Executable ----
 
-add_executable(hamming_weight "hamming_weight/hamming_weight.cc")
-target_link_libraries(hamming_weight benchmark)
-target_compile_features(hamming_weight PRIVATE cxx_std_20)
+add_executable(bm_hamming_weight "hamming_weight/hamming_weight.cc")
+target_link_libraries(bm_hamming_weight benchmark)
+target_compile_features(bm_hamming_weight PRIVATE cxx_std_20)

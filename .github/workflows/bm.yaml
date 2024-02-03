@@ -1,0 +1,30 @@
+name: Examples
+
+on:
+  push:
+    branches:
+    - dev
+  pull_request:
+    branches:
+    - dev
+
+jobs:
+  gcc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build all
+        env:
+          CC: gcc
+          CXX: g++
+        run: bash build.sh
+
+  clang:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build all
+        env:
+          CC: clang
+          CXX: clang++
+        run: bash build.sh

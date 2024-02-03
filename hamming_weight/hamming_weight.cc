@@ -149,4 +149,5 @@ BM_hammingWeightV2/256              233 ns          233 ns      3001257
 BM_hammingWeightV2/512              463 ns          463 ns      1510925
 BM_hammingWeightV2/1024             927 ns          927 ns       758631
 
+
 */
