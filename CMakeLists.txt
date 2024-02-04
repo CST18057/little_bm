@@ -5,7 +5,7 @@ project(little_benchmark)
 include(cmake/CPM.cmake)
 
 set(CMAKE_CXX_FLAGS
-    "${CMAKE_CXX_FLAGS}  -g -O2 -fno-omit-frame-pointer")
+    "${CMAKE_CXX_FLAGS}  -g -O3 -ffast-math -fno-omit-frame-pointer")
 
 CPMAddPackage(
   NAME benchmark
@@ -24,3 +24,7 @@ endif()
 add_executable(bm_hamming_weight "hamming_weight/hamming_weight.cc")
 target_link_libraries(bm_hamming_weight benchmark)
 target_compile_features(bm_hamming_weight PRIVATE cxx_std_20)
+
+add_executable(bm_hamming_weight32 "hamming_weight/hamming_weight32.cc")
+target_link_libraries(bm_hamming_weight32 benchmark)
+target_compile_features(bm_hamming_weight32 PRIVATE cxx_std_20)
