@@ -97,3 +97,20 @@ BM(histgram_avx)->Iterations(10000000);
 
 BENCHMARK_MAIN();
 
+/**
+2024-07-07T18:16:00+08:00
+Running ./build/bm_histgram
+Run on (12 X 2600 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB
+  L1 Instruction 32 KiB
+  L2 Unified 256 KiB (x6)
+  L3 Unified 12288 KiB
+Load Average: 2.84, 3.07, 2.77
+--------------------------------------------------------------------------------
+Benchmark                                      Time             CPU   Iterations
+--------------------------------------------------------------------------------
+BM_histgram_mwish/iterations:10000000       7065 ns         7019 ns     10000000
+BM_histgram_base/iterations:10000000        6836 ns         6769 ns     10000000
+BM_histgram_avx/iterations:10000000         7228 ns         7179 ns     10000000
+*/
