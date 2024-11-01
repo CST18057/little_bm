@@ -11,7 +11,7 @@ if (NOT EXISTS ${CMAKE_BINARY_DIR}/CMakeCache.txt)
 endif()
 
 set(CMAKE_CXX_FLAGS
-    "${CMAKE_CXX_FLAGS}  -g -O3 -ffast-math -Wall -march=native -fno-omit-frame-pointer")
+    "${CMAKE_CXX_FLAGS}  -g -O3 -ffast-math -Wall -march=native ")
 
 CPMAddPackage(
   NAME benchmark
@@ -38,3 +38,18 @@ target_compile_features(bm_hamming_weight32 PRIVATE cxx_std_20)
 add_executable(bm_histgram "histgram/histgram.cc")
 target_link_libraries(bm_histgram benchmark)
 target_compile_features(bm_histgram PRIVATE cxx_std_20)
+
+
+add_executable(bm_gen_recursive_short "generator_recursive/main.cpp")
+add_executable(bm_gen_recursive_middle "generator_recursive/main.cpp")
+add_executable(bm_gen_recursive_long "generator_recursive/main.cpp")
+target_compile_definitions(bm_gen_recursive_short PRIVATE TEST_SHORT)
+target_compile_definitions(bm_gen_recursive_middle PRIVATE TEST_MIDDLE)
+target_compile_definitions(bm_gen_recursive_long PRIVATE TEST_LONG)
+target_compile_options(bm_gen_recursive_long PRIVATE -fomit-frame-pointer)
+target_link_libraries(bm_gen_recursive_short benchmark)
+target_link_libraries(bm_gen_recursive_middle benchmark)
+target_link_libraries(bm_gen_recursive_long benchmark)
+target_compile_features(bm_gen_recursive_short PRIVATE cxx_std_23)
+target_compile_features(bm_gen_recursive_middle PRIVATE cxx_std_23)
+target_compile_features(bm_gen_recursive_long PRIVATE cxx_std_23)
